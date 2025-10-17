@@ -1,6 +1,6 @@
 package com.nzofoli.spring.produtosapi.model;
+import jakarta.persistence.Entity;
 
-import java.math.BigDecimal;
 
 // POJO -> Plain Old Java Object
 public class Produto {
@@ -8,7 +8,7 @@ public class Produto {
     private String id;
     private String nome;
     private String descricao;
-    private BigDecimal preco;
+    private Double preco;
 
     public String getId() {
         return id;
@@ -34,11 +34,11 @@ public class Produto {
         this.descricao = descricao;
     }
 
-    public BigDecimal getPreco() {
+    public Double getPreco() {
         return preco;
     }
 
-    public void setPreco(BigDecimal preco) {
+    public void setPreco(Double preco) {
         this.preco = preco;
     }
 
