@@ -1,0 +1,7 @@
+-- Spring initializr
+dependencies:
+Lombok
+Spring Boot DevTools
+Spring Web
+Spring Data JPA
+H2 Database
