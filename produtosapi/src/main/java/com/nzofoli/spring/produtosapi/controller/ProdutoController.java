@@ -4,6 +4,7 @@ import com.nzofoli.spring.produtosapi.model.Produto;
 import com.nzofoli.spring.produtosapi.repository.ProdutoRepository;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -24,5 +25,26 @@ public class ProdutoController {
         produto.setId(id);
         produtoRepository.save(produto);
         return produto;
+    }
+
+    @GetMapping("/{id}") // pode inserir mais parametros (/{id}/{nome}/)
+    public Produto obterProduto(@PathVariable("id") String id) {
+        return produtoRepository.findById(id).orElse(null);
+    }
+
+    @DeleteMapping("{id}")
+    public void deletar(@PathVariable("id") String id) {
+        produtoRepository.deleteById(id);
+    }
+
+    @PutMapping("{id}")
+    public void atualizar(@PathVariable("id") String id, @RequestBody Produto produto) {
+        produto.setId(id);
+        produtoRepository.save(produto);
+    }
+
+    @GetMapping // coloca quantos parametros quiser
+    public List<Produto> buscar(@RequestParam("nome") String nome) {
+        return produtoRepository.findByNome(nome);
     }
 }
